@@ -4,14 +4,14 @@ import Message from './Message';
 
 import './style.scss';
 
-const Messages = ({ messagesData }) => (
+const Messages = ({ messages }) => (
   <ul>
-    {messagesData.map((message) => (<Message key={message.id} {...message} />))}
+    {messages.map((message) => (<Message key={message.id} {...message} />))}
   </ul>
 );
 
 Messages.propTypes = {
-  messagesData: PropTypes.arrayOf(
+  messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       /* on valide seulement les informations réellement utilisées par Tasks */

@@ -1,8 +1,27 @@
+@use 'src/styles/vars';
+
 form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   input {
-    border-radius: 0px;
+    height: vars.$inputHeight;
+    border: none;
+    font-size: 1.2em;
+    padding: 1rem;
+    padding-right: vars.$inputHeight;
   }
   button {
-    
+    position: absolute;
+    right: 0;
+    width: vars.$inputHeight;
+    height: vars.$inputHeight;
+    border: none;
+    background-color: transparent;
+    color: vars.$darkColor;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 }
