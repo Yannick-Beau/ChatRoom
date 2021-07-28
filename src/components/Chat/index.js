@@ -2,19 +2,19 @@
 import React from 'react';
 
 // == Import
-import Messages from 'src/components/Messages';
+import Messages from 'src/containers/Messages';
 import Form from 'src/components/Form';
 import './styles.scss';
 
 // import data
-import messagesData from 'src/data';
+// import messagesData from 'src/data';
 // == Composant
-const App = () => (
+const Chat = () => (
   <div className="app">
-    <Messages messagesData={messagesData} />
+    <Messages />
     <Form />
   </div>
 );
 
 // == Export
-export default App;
+export default Chat;
