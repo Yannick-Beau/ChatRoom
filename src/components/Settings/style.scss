@@ -1,0 +1,45 @@
+@use 'src/styles/vars';
+
+.settings {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  .show-settings {
+    border: none;
+    border-radius: 80px;
+    background-color: pink;
+    margin: vars.$gutter * 1.5;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1em;
+  }
+  .form-settings {
+    display: flex;
+    flex-direction: column;
+    .input-email {
+      height: 2rem;
+      margin: vars.$gutter;
+      padding: vars.$gutter;
+      border: none;
+      border-radius: 5px;
+    }
+    .input-password {
+      height: 2rem;
+      margin: vars.$gutter;
+      padding: vars.$gutter;
+      border: none;
+      border-radius: 5px;
+    }
+    .submit-settings {
+      height: 2rem;
+      margin: vars.$gutter * 1.2;
+      padding: vars.$gutter *1.2;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: purple;
+    }
+  }
+}

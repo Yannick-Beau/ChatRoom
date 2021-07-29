@@ -6,6 +6,7 @@ import './style.scss';
 
 const Form = ({ value, setValue, addMessage }) => (
   <form
+    className="form-addMessage"
     onSubmit={(event) => {
       event.preventDefault();
       console.log('on va poster le message');
@@ -13,14 +14,15 @@ const Form = ({ value, setValue, addMessage }) => (
     }}
   >
     <input
+      className="input-message"
       type="text"
       placeholder="Saisissez votre message..."
       value={value}
       onChange={(event) => {
-        setValue(event.currentTarget.value);
+        setValue(event.currentTarget.value, 'message');
       }}
     />
-    <button type="submit">
+    <button className="submit-addMessage" type="submit">
       <Send size={48} />
     </button>
   </form>

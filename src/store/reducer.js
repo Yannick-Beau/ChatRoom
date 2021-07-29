@@ -1,5 +1,5 @@
 import messagesData from 'src/data';
-import { SET_INPUT_VALUE, ADD_MESSAGE } from 'src/actions';
+import { SET_INPUT_MESSAGE_VALUE, ADD_MESSAGE } from 'src/actions';
 import { getNextId } from 'src/utils';
 
 // reducer : fonction qui prend en paramètre le state actuel et une action, et qui
@@ -19,7 +19,7 @@ function reducer(state = initialState, action = {}) {
   console.log('on passe dans le reducer, action:', action);
 
   switch (action.type) {
-    case SET_INPUT_VALUE:
+    case SET_INPUT_MESSAGE_VALUE:
       return {
         ...state,
         inputMessage: action.value,
