@@ -1,5 +1,11 @@
 import messagesData from 'src/data';
-import { SET_INPUT_MESSAGE_VALUE, ADD_MESSAGE } from 'src/actions';
+import {
+  SET_INPUT_MESSAGE_VALUE,
+  SET_INPUT_EMAIL_VALUE,
+  SET_INPUT_PASSWORD_VALUE,
+  ADD_MESSAGE,
+  SET_SHOW_SETTINGS,
+} from 'src/actions';
 import { getNextId } from 'src/utils';
 
 // reducer : fonction qui prend en paramètre le state actuel et une action, et qui
@@ -12,6 +18,9 @@ import { getNextId } from 'src/utils';
 const initialState = {
   messages: messagesData,
   inputMessage: '',
+  inputEmail: '',
+  inputPassword: '',
+  showSettings: false,
   nickname: 'Jake Peralta',
 };
 
@@ -23,6 +32,16 @@ function reducer(state = initialState, action = {}) {
       return {
         ...state,
         inputMessage: action.value,
+      };
+    case SET_INPUT_EMAIL_VALUE:
+      return {
+        ...state,
+        inputEmail: action.value,
+      };
+    case SET_INPUT_PASSWORD_VALUE:
+      return {
+        ...state,
+        inputPassword: action.value,
       };
     case ADD_MESSAGE: {
       const newMessage = {
@@ -38,6 +57,11 @@ function reducer(state = initialState, action = {}) {
         inputMessage: '',
       };
     }
+    case SET_SHOW_SETTINGS:
+      return {
+        ...state,
+        showSettings: !state.showSettings,
+      };
     default:
       return state;
   }
