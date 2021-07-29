@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Message = ({ id, userName, content }) => (
-  <li id={id}>
-    <h2>{userName}</h2>
-    <p>{content}</p>
-  </li>
+const Message = ({ username, content }) => (
+  <div className="message">
+    <div className="message-author">{username}</div>
+    <div className="message-content">{content}</div>
+  </div>
 );
 
 Message.propTypes = {
-  id: PropTypes.number.isRequired,
-  userName: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 };
 

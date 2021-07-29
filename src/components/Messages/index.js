@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+
 import Message from './Message';
 
-import './style.scss';
+import './messages.scss';
+
+/* objectif : scroller automatiquement en bas de la zone de messages après chaque
+nouveau message
+- useEffect
+- traitement : appeler scrollTo sur l'élément qui a la scrollbar
+*/
 
 const Messages = ({ messages }) => {
   // https://reactjs.org/docs/hooks-reference.html#useref
@@ -28,10 +35,16 @@ const Messages = ({ messages }) => {
       behavior: 'smooth',
     });
   });
+
   return (
-    <ul ref={refDiv}>
-      {messages.map((message) => (<Message key={message.id} {...message} />))}
-    </ul>
+    <div className="messages" ref={refDiv}>
+      {messages.map((message) => (
+        <Message
+          {...message}
+          key={message.id}
+        />
+      ))}
+    </div>
   );
 };
 
@@ -39,7 +52,6 @@ Messages.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      /* on valide seulement les informations réellement utilisées par Tasks */
     }).isRequired,
   ).isRequired,
 };

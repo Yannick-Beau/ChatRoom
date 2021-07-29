@@ -1,31 +1,24 @@
-// connect : permet de créer un composant assistant (container) pour un composant de
-// présentation
 import { connect } from 'react-redux';
 
-// on importe le composant de présentation pour lequel on veut créer un assistant
+// on importe le composant de présentation
 import Form from 'src/components/Form';
-import { addMessage, changeInputValue } from '../../actions';
 
-// === mapStateToProps : lecture des infos du state
-// indique le mapping entre les infos du state et les props du composant de
-// présentation
-// retourne un objet
-// const mapStateToProps = (state) => {
-//   return {
-//     // nom de la prop : comment récupérer l'info correspondante dans le state
-//     nbColors: state.nbColors,
-//   }
-// };
+import { changeInputValue, addMessage } from '../../actions/chat';
 
-// la seule instruction est un return => simplification avec return implicite
+// === mapStateToProps
+// si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
-  // nom de la prop : comment récupérer l'info correspondante dans le state
+  // nom de la prop à remplir: élément à récupérer dans le state
   value: state.inputMessage,
 });
 
-// === mapDispatchToProps : dispatch des actions vers le store
+// === mapDispatchToProps
+// si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
+  // nom de la prop à remplir: fonction qui dispatch l'action
   setValue: (newValue) => {
+    // console.log('on va dispatcher une action, newValue:', newValue);
+
     const action = changeInputValue(newValue);
     dispatch(action);
   },
@@ -34,30 +27,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-// ==== création de l'assistant
-// connect crée une fonction sur mesure qui permettra de créer l'assistant
-const fonctionCreation = connect(mapStateToProps, mapDispatchToProps);
-// on applique la fonction fournie par connect sur le composant de présentation
-// pour obtenir l'assistant
-const assistant = fonctionCreation(Form);
-
-// on exporte l'assistant
-export default assistant;
-
-/* ce que fait l'assistant, c'est un peu comme :
-const AssistantNbColors = () => {
-  // récupération de l'info dans le state
-  const nbColorsValue = state.nbColors;
-
-  // injection des valeurs du state dans les props du composant
-  return (
-    <NbColors nbColors={nbColorsValue}
-  );
-}
-
-export default AssistantNbColors;
-*/
-
-// => assistant ("container") pour le composant NbColors : prendre en charge la
-// communication avec le store et transmettre les informations en props au
-// composant de présentation NbColors
+// === création de l'assistant
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
