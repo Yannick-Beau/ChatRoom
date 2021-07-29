@@ -16,7 +16,7 @@ const Messages = ({ messages }) => {
   const refDiv = useRef(null);
 
   useEffect(() => {
-    // console.log('on va scroller');
+    console.log('on va scroller');
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo
     // déplacer la scrollbar sur un élément
