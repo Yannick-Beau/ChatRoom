@@ -5,6 +5,7 @@ import {
   SET_INPUT_PASSWORD_VALUE,
   ADD_MESSAGE,
   SET_SHOW_SETTINGS,
+  CONNECT_USER,
 } from 'src/actions';
 import { getNextId } from 'src/utils';
 
@@ -61,6 +62,13 @@ function reducer(state = initialState, action = {}) {
       return {
         ...state,
         showSettings: !state.showSettings,
+      };
+
+    case CONNECT_USER:
+      return {
+        ...state,
+        nickname: action.nickname,
+        showSettings: false,
       };
     default:
       return state;
