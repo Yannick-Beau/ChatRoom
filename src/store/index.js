@@ -1,16 +1,24 @@
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
-
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import authMiddleware from 'src/middlewares/authMiddleware';
 import reducer from './reducer';
 
 // le store est le "gardien" de notre state : il le stocke et il le protège (il
 // autorise seulement certaines modifications qu'on a prévues à l'avance)
 
+// On construit un enhancer avec à la fois les dev tools et les middleware
+const enhancer = composeWithDevTools(
+  applyMiddleware(
+    authMiddleware,
+    // d'autres middlewares
+  ),
+);
+
 const store = createStore(
   // le reducer
   reducer,
   // enhancer
-  devToolsEnhancer(),
+  enhancer,
 );
 
 // enhancer est normalement le troisième paramètre de createStore, mais si on le

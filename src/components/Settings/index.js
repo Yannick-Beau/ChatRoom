@@ -9,6 +9,7 @@ const Settings = ({
   setValue,
   showSettings,
   setShowSettings,
+  handleSubmit,
 }) => (
   <div className="settings">
     <button
@@ -27,6 +28,7 @@ const Settings = ({
         onSubmit={(event) => {
           event.preventDefault();
           console.log('on va ce connecter');
+          handleSubmit();
         }}
       >
         <input
@@ -61,6 +63,7 @@ Settings.propTypes = {
   setValue: PropTypes.func.isRequired,
   showSettings: PropTypes.bool.isRequired,
   setShowSettings: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Settings;

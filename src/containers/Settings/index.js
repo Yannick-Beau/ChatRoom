@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation pour lequel on veut créer un assistant
 import Settings from 'src/components/Settings';
-import { changeInputValue, setShowSettings } from '../../actions';
+import { changeInputValue, setShowSettings, submitLogin } from '../../actions';
 
 const mapStateToProps = (state) => ({
   // nom de la prop : comment récupérer l'info correspondante dans le state
@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setShowSettings: () => {
     dispatch(setShowSettings());
+  },
+  handleSubmit: () => {
+    dispatch(submitLogin());
   },
 });
 
