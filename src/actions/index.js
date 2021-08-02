@@ -5,6 +5,8 @@ export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const SET_SHOW_SETTINGS = 'SHOW_SETTINGS';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const CONNECT_USER = 'CONNECT_USER';
+// intention : initialiser le websocket
+export const INIT_WEBSOCKET = 'INIT_WEBSOCKET';
 
 export const changeInputValue = (value, typeInput) => {
   switch (typeInput) {
@@ -49,4 +51,8 @@ export const submitLogin = () => ({
 export const connectUser = (nickname) => ({
   type: CONNECT_USER,
   nickname: nickname,
+});
+
+export const initWebsocket = () => ({
+  type: INIT_WEBSOCKET,
 });

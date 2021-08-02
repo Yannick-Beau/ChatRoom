@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import authMiddleware from 'src/middlewares/authMiddleware';
+import socketMiddleware from 'src/middlewares/socketMiddleware';
 import reducer from './reducer';
 
 // le store est le "gardien" de notre state : il le stocke et il le protège (il
@@ -10,6 +11,7 @@ import reducer from './reducer';
 const enhancer = composeWithDevTools(
   applyMiddleware(
     authMiddleware,
+    socketMiddleware,
     // d'autres middlewares
   ),
 );
