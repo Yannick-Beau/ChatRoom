@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 // == Import : local
 // Composants
-import Chat from 'src/components/Chat';
+import Chat from 'src/containers/Chat';
 import store from 'src/store';
 
 // == Render
